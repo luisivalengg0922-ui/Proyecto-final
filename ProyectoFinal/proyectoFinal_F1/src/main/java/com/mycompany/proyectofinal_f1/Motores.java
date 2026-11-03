@@ -1,8 +1,11 @@
+
 package com.mycompany.proyectofinal_f1;
+
 public class Motores extends Proveedores {
+
     private int numChasis;
 
-    public Motores(int identificador, String nombre) {
+    public Motores(int identificador, String nombre, int numChasis) {
         super(identificador, nombre);
         this.numChasis = numChasis;
     }
@@ -14,5 +17,4 @@ public class Motores extends Proveedores {
     public void setNumChasis(int numChasis) {
         this.numChasis = numChasis;
     }
-    
 }

@@ -2,6 +2,14 @@ DROP DATABASE IF EXISTS f1;
 CREATE DATABASE f1;
 USE f1;
 
+-- TABLA DE CUENTAS DE USUARIO
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
+    contrasena_hash VARCHAR(255) NOT NULL
+);
+
 -- TABLAS PRINCIPALES
 
 CREATE TABLE proveedores (
@@ -64,7 +72,10 @@ CREATE TABLE resultado (
     codigo_piloto VARCHAR(20) NOT NULL,
     identificador_auto INT NOT NULL,
     identificador_gran_premio INT NOT NULL,
-    resultado INT NOT NULL,
+    tiempo DOUBLE NOT NULL,
+    vueltas INT NOT NULL,
+    puntos INT NOT NULL,
+    posicion INT NOT NULL,
 
     PRIMARY KEY (
         codigo_piloto,
@@ -348,15 +359,16 @@ VALUES
 
 
 INSERT INTO resultado
-(codigo_piloto, identificador_auto, identificador_gran_premio, resultado)
+(codigo_piloto, identificador_auto, identificador_gran_premio, tiempo, vueltas, puntos, posicion)
 VALUES
-('P001', 101, 1, 1),
-('P002', 102, 1, 2),
-('P001', 101, 2, 3),
-('P002', 102, 2, 1),
-('P003', 103, 3, 1),
-('P004', 104, 3, 2),
-('P005', 105, 3, 3),
-('P003', 103, 4, 2),
-('P004', 104, 4, 1),
-('P005', 105, 4, 3);
+('P001', 101, 1, 1.20, 50, 12, 4),
+('P002', 102, 1, 2.00, 40, 0, 18),
+('P003', 103, 3, 1.35, 50, 8, 6),
+('P004', 104, 3, 1.30, 50, 10, 5),
+('P005', 105, 3, 1.15, 50, 25, 1);
+
+
+INSERT INTO usuarios
+(id, nombre_usuario, contrasena_hash)
+VALUES
+(0, 'admin', '1234abc');

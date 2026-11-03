@@ -1,8 +1,13 @@
+
 package com.mycompany.proyectofinal_f1;
+
 public class Indumentaria extends Proveedores {
+
     private String nombreInd;
-    
-    public Indumentaria(int identificador, String nombre) {
+
+    public Indumentaria(int identificador, String nombre,
+            String nombreInd) {
+
         super(identificador, nombre);
         this.nombreInd = nombreInd;
     }
@@ -14,6 +19,4 @@ public class Indumentaria extends Proveedores {
     public void setNombreInd(String nombreInd) {
         this.nombreInd = nombreInd;
     }
-    
-    
 }
